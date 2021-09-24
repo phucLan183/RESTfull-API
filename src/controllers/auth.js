@@ -145,6 +145,19 @@ const refreshToken = async (req, res) => {
   })
 }
 
+const removeUser = async (req, res) => {
+  try {
+    const userId = req.params.id
+    const result = await User.deleteOne({ _id: userId })
+    return res.status(200).json(result)
+  } catch (error) {
+    res.status(500).json({
+      status: 'false',
+      message: error.message,
+    })
+  }
+}
+
 module.exports = {
   getAllUsers: getAllUsers,
   userRegister: userRegister,
@@ -152,4 +165,5 @@ module.exports = {
   userLogout: userLogout,
   accessToken: accessToken,
   refreshToken: refreshToken,
+  removeUser: removeUser,
 }

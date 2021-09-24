@@ -25,7 +25,6 @@ const authenticateRefreshToken = (req, res, next) => {
   })
 }
 
-
 const isAdmin = (req, res, next) => {
   authenticateToken(req, res, () => {
     if (req.user.isAdmin) {
