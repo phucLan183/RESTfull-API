@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: true }))
 const authRouter = require('./routers/auth');
 app.use(authRouter)
 
+const indexRouter = require('./routers/index');
+app.use(indexRouter)
 
 app.listen(process.env.PORT, () => {
   console.log(`App running in URL: http://localhost:${process.env.PORT}`);

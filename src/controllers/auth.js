@@ -2,17 +2,6 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const getAllUsers = async (req, res) => {
-  try {
-    const allUsers = await User.find()
-    res.status(200).json(allUsers)
-  } catch (err) {
-    res.status(500).json({
-      status: 'false'
-    })
-  }
-}
-
 const userRegister = async (req, res) => {
   try {
     const { username, password } = req.body
@@ -49,7 +38,7 @@ const userLogin = async (req, res) => {
     const accessToken = jwt.sign({
       id: checkUser._id,
       username: checkUser.username,
-      isAdmin: checkUser.isAdmin
+      is_Admin: checkUser.is_Admin
     }, process.env.ACCESS_TOKEN, {
       expiresIn: '3m'
     });
@@ -57,7 +46,6 @@ const userLogin = async (req, res) => {
     const refreshToken = jwt.sign({
       id: checkUser._id,
       username: checkUser.username,
-      isAdmin: checkUser.isAdmin
     }, process.env.REFRESH_TOKEN, {
       expiresIn: '7d'
     });
@@ -115,6 +103,7 @@ const accessToken = async (req, res) => {
     });
   };
 }
+
 const refreshToken = async (req, res) => {
   const user = {
     username: req.user.username,
@@ -126,6 +115,7 @@ const refreshToken = async (req, res) => {
   const dataUser = await User.findOne({
     username: user.username
   })
+  console.log(dataUser.is_Admin);
   const storageRefreshToken = dataUser.refreshToken
 
   if (!storageRefreshToken.includes(user.refreshToken)) {
@@ -133,37 +123,25 @@ const refreshToken = async (req, res) => {
   }
   const token = jwt.sign({
     id: dataUser._id,
-    username: dataUser.username
+    username: dataUser.username,
+    is_Admin: dataUser.is_Admin
   }, process.env.ACCESS_TOKEN, {
     expiresIn: "10m"
   })
+
   res.json({
-    success: true,
-    response: {
+    success: "success",
+    message: {
       token
     }
   })
 }
 
-const removeUser = async (req, res) => {
-  try {
-    const userId = req.params.id
-    const result = await User.deleteOne({ _id: userId })
-    return res.status(200).json(result)
-  } catch (error) {
-    res.status(500).json({
-      status: 'false',
-      message: error.message,
-    })
-  }
-}
 
 module.exports = {
-  getAllUsers: getAllUsers,
   userRegister: userRegister,
   userLogin: userLogin,
   userLogout: userLogout,
   accessToken: accessToken,
   refreshToken: refreshToken,
-  removeUser: removeUser,
 }
