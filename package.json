@@ -1,10 +1,11 @@
 {
-  "name": "Experiment4",
+  "name": "experiment",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src/app",
+    "deploy": "git push heroku master",
     "dev": "nodemon src/app"
   },
   "keywords": [],
