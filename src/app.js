@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3333;
 const Grid = require("gridfs-stream");
@@ -11,6 +12,9 @@ connectDB();
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// Config CORS
+app.use(cors()); 
 
 // Import routers
 const authRouter = require('./routers/auth');
