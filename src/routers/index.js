@@ -3,6 +3,8 @@ const router = express.Router();
 const productsController = require('../controllers/products');
 const categoriesController = require('../controllers/categories');
 const userController = require('../controllers/user');
+const colorController = require('../controllers/color');
+const configController = require('../controllers/config');
 const { isAdmin } = require('../middlewares/authToken');
 const { productSchema } = require('../Validations');
 const validationMiddleware = require('../middlewares/validation');
@@ -25,9 +27,9 @@ router.delete('/products/:id', isAdmin, productsController.removeProduct)
 // Categories
 router.get('/categories', categoriesController.getAllCategories)
 router.get('/categories/:id', categoriesController.getOneCategories)
-router.delete('/categories/:id', isAdmin, categoriesController.removeCategory)
 router.post('/add-category', isAdmin, categoriesController.createCategory)
 router.put('/categories/:id', isAdmin, categoriesController.updateCategory)
+router.delete('/categories/:id', isAdmin, categoriesController.removeCategory)
 
 // User
 router.get('/users', userController.getAllUsers)
@@ -35,9 +37,13 @@ router.get('/users/:id', userController.getOneUser)
 router.delete('/users/:id', isAdmin, userController.removeUser)
 
 // Color
-router.post('/add-color', isAdmin, productsController.createColor)
+router.get('/colors', colorController.getAllColor)
+router.get('/colors/:id', colorController.getOneColor)
+router.post('/add-color', isAdmin, colorController.createColor)
 
 // Config
-router.post('/add-config', isAdmin, productsController.createConfig)
+router.get('/configs', configController.getAllConfig)
+router.get('/configs/:id', configController.getOneConfig)
+router.post('/add-config', isAdmin, configController.createConfig)
 
 module.exports = router

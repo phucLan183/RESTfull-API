@@ -28,7 +28,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3000/add-product
-x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNTA3ODg2LCJleHAiOjE2MzI1MDg0ODZ9.dbAGzGqYWbWMLbxoWXsuncsSHv7sCY1-37M578_2DMg
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNzQ3NTEyLCJleHAiOjE2MzI3NDgxMTJ9.7x_jmGOjYS1bOG3vVxL4VBoAzdHO6aRvyaHt4xW0KfQ
 Content-Type: application/json
 
 {
@@ -36,10 +36,17 @@ Content-Type: application/json
   "description": "Hệ thống camera chuyên nghiệp tiên tiến nhất từng có trên iPhone; Màn hình Super Retina XDR với ProMotion; một bước nhảy vọt về tuổi thọ pin; A15 Bionic, chip nhanh nhất trong điện thoại thông minh; trải nghiệm 5G tiên tiến; và nhiều hơn nữa",
   "price": "23999000",
   "sale": "100",
-  "color": "614dc78d99bcf54c337411ed",
-  "config": "614dcd83de51a05e8ae16003",
-  "category": "614dcfa3c56a9c08e991476b",
+  "color_id": "614dc78d99bcf54c337411ed",
+  "config_id": "614dcd83de51a05e8ae16003",
+  "category_id": "614dcfa3c56a9c08e991476b",
   "isNew": "true",
   "stock": "200",
   "content": "iPhone 13 Pro Max ra mắt mang đến nhiều tính năng được mong đợi như màn hình ProMotion 120 Hz, máy ảnh được nâng cấp và có lẽ ấn tượng nhất là thời lượng pin tăng đáng kể. Trong bài viết này, chúng ta cùng xem xét sự khác biệt về thiết kế, ưu điểm của chip Apple A15 mới hơn, mọi thứ mới xung quanh camera và cuối cùng là thời lượng pin."          
 }
+
+
+###
+DELETE http://localhost:3000/products/6151c0c3055dbc3c645cea2e
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNzQ3NTEyLCJleHAiOjE2MzI3NDgxMTJ9.7x_jmGOjYS1bOG3vVxL4VBoAzdHO6aRvyaHt4xW0KfQ
+
+ 

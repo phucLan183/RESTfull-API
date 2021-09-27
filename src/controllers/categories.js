@@ -6,7 +6,6 @@ const getAllCategories = async (req, res) => {
     res.status(200).json({
       status: 'success',
       message: dataCategories,
-      totalProducts: dataCategories.length,
     })
   } catch (error) {
     res.status(500).json({
@@ -90,6 +89,7 @@ const removeCategory = async (req, res) => {
     })
   }
 }
+
 module.exports = {
   getAllCategories: getAllCategories,
   createCategory: createCategory,

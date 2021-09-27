@@ -21,7 +21,6 @@ const ProductsSchema = new Schema({
   },
   image: {
     type: String,
-    required: true,
   },
   stock: {
     type: Number,
@@ -47,7 +46,7 @@ const ProductsSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Color'
   },
-  config: {
+  config_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Config'
   }
