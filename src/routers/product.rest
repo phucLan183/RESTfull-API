@@ -44,6 +44,12 @@ Content-Type: application/json
   "content": "iPhone 13 Pro Max ra mắt mang đến nhiều tính năng được mong đợi như màn hình ProMotion 120 Hz, máy ảnh được nâng cấp và có lẽ ấn tượng nhất là thời lượng pin tăng đáng kể. Trong bài viết này, chúng ta cùng xem xét sự khác biệt về thiết kế, ưu điểm của chip Apple A15 mới hơn, mọi thứ mới xung quanh camera và cuối cùng là thời lượng pin."          
 }
 
+###
+GET http://localhost:3000/configs
+
+###
+GET http://localhost:3000/colors
+
 
 ###
 DELETE http://localhost:3000/products/6151c2cdaecbc23398b11c20
