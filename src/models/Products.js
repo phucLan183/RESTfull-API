@@ -42,14 +42,14 @@ const ProductsSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Categories'
   },
-  color_id: {
+  color_id: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Color'
-  },
-  config_id: {
+  }],
+  config_id: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Config'
-  }
+  }]
 }, {
   timestamps: true
 });
