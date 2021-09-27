@@ -8,7 +8,24 @@ const getAllProducts = async (req, res) => {
     const productData = await ProductsModel.find().lean()
     res.status(200).json({
       status: 'success',
-      message: productData
+      message: productData,
+      totalProducts: productData.length,
+    })
+  } catch (error) {
+    res.status(500).json({
+      status: 'false',
+      message: error.message,
+    })
+  }
+}
+
+const getOneProduct = async (req, res) => {
+  try {
+    const productId = req.params.id
+    const findProduct = await ProductsModel.findById({ _id: productId }).lean()
+    res.status(200).json({
+      status: 'success',
+      message: findProduct
     })
   } catch (error) {
     res.status(500).json({
@@ -20,7 +37,7 @@ const getAllProducts = async (req, res) => {
 
 const crateProduct = async (req, res) => {
   try {
-    const { title, description, price, sale, image, color, config, category, isNew, content, stock } = req.body
+    const { title, description, price, sale, color, config, category, isNew, content, stock } = req.body
     const newProduct = new ProductsModel({
       title: title,
       description: description,
@@ -32,11 +49,28 @@ const crateProduct = async (req, res) => {
       is_New: isNew,
       content: content,
       stock: stock,
+      image: req.file.filename
     })
     const saveProduct = await newProduct.save()
     res.status(200).json({
       status: 'success',
       message: saveProduct
+    })
+  } catch (error) {
+    res.status(500).json({
+      status: 'false',
+      message: error.message,
+    })
+  }
+}
+
+const removeProduct = async (req, res) => {
+  try {
+    const productId = req.params.id
+    const removeProduct = await ProductsModel.deleteOne({ _id: productId }).lean()
+    res.status(200).json({
+      status: 'success',
+      message: removeProduct
     })
   } catch (error) {
     res.status(500).json({
@@ -82,28 +116,12 @@ const createConfig = async (req, res) => {
   }
 }
 
-const createCategory = async (req, res) => {
-  try {
-    const newCategory = new CategoriesModel({
-      title: req.body.title,
-    })
-    const saveCategory = await newCategory.save()
-    res.status(200).json({
-      status: 'success',
-      message: saveCategory
-    })
-  } catch (error) {
-    res.status(500).json({
-      status: 'false',
-      message: error.message,
-    })
-  }
-}
 
 module.exports = {
   getAllProducts: getAllProducts,
+  getOneProduct: getOneProduct,
   createColor: createColor,
+  removeProduct: removeProduct,
   createConfig: createConfig,
-  createCategory: createCategory,
-  crateProduct: crateProduct,
+  crateProduct: crateProduct
 }
