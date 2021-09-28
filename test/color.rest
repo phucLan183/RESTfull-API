@@ -1,0 +1,9 @@
+GET http://localhost:3000/colors
+###
+POST http://localhost:3000/add-color
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNDkwNjIyLCJleHAiOjE2MzI0OTEyMjJ9.cmN5PME46qidY4pDxcmMEr2PQyFwKDD1-vvY6OcKh3I
+Content-Type: application/json
+
+{
+  "nameColor": "Green"
+}

@@ -1,0 +1,8 @@
+GET http://localhost:3000/users
+
+###
+GET http://localhost:3000/users/614dc317afb8041050a6615e
+
+###
+Delete http://localhost:3000/users/614dc317afb8041050a6615e
+x-token Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNzYzOTM5LCJleHAiOjE2MzI3NjQ1Mzl9.7IkZtJ9dSOxPs_y6GG62Vhld4djrK_DKO43-aTKcGcg

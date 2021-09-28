@@ -40,7 +40,7 @@ const userLogin = async (req, res) => {
       username: checkUser.username,
       is_Admin: checkUser.is_Admin
     }, process.env.ACCESS_TOKEN, {
-      expiresIn: '3m'
+      expiresIn: '30m'
     });
 
     const refreshToken = jwt.sign({
@@ -115,7 +115,6 @@ const refreshToken = async (req, res) => {
   const dataUser = await User.findOne({
     username: user.username
   })
-  console.log(dataUser.is_Admin);
   const storageRefreshToken = dataUser.refreshToken
 
   if (!storageRefreshToken.includes(user.refreshToken)) {

@@ -1,0 +1,11 @@
+GET http://localhost:3000/configs
+###
+GET http://localhost:3000/configs/614dcd52de51a05e8ae15ff9
+###
+POST http://localhost:3000/add-config
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNDg4NTA4LCJleHAiOjE2MzI0ODkxMDh9.iFPrBeM6dpUPvxI6v9eyMMpg-d6bgtW0ayOR9NIlANk
+Content-Type: application/json
+
+{
+  "nameConfig": "512GB"
+}

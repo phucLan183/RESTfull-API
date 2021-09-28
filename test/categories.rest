@@ -1,0 +1,13 @@
+GET  http://localhost:3000/categories
+###
+GET  http://localhost:3000/categories/614dcf66c56a9c08e9914761
+###
+POST http://localhost:3000/add-category
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNDg5MTQ5LCJleHAiOjE2MzI0ODk3NDl9.keF5FFCfnt1YYt24h8WRTPjxoVmZHqNogmlZbbDvLUs
+Content-Type: application/json
+
+{
+  "title": "Music"
+}
+###
+DELETE http://localhost:3000/categories/614dcf66c56a9c08e9914761

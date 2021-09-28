@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 // Products
 router.get('/products', productsController.getAllProducts)
 router.get('/products/:id', productsController.getOneProduct)
-router.post('/add-product', isAdmin, uploadMiddleware.single('image'), productsController.crateProduct)
+router.post('/add-product', productsController.crateProduct)
 router.delete('/products/:id', isAdmin, productsController.removeProduct)
 
 // Categories

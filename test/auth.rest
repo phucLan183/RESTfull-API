@@ -1,0 +1,45 @@
+GET http://localhost:3000/
+
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "123456" 
+}
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "123456" 
+}
+
+###
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "nguyenvanb",
+    "password": "987654321" 
+}
+
+###
+DELETE http://localhost:3000/logout
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNzYzODQzLCJleHAiOjE2MzI3NjQ0NDN9.kN5Kl0-AQonJLXImq94gBfUP_M1Ugh3B9a4bpRV7HU0
+
+###
+GET http://localhost:3000/access-token
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNjI4MTE1LCJleHAiOjE2MzI2Mjg3MTV9.GKGOBGDIsVO1vMsKG1NsSzb7Xxz5AabWqxGDPxsomF8
+
+###
+POST http://localhost:3000/refresh-token
+x-refresh-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MzI2MjY2MzYsImV4cCI6MTYzMzIzMTQzNn0.0fE9vx9AnVox3u9o3PWk5q5gYYCCWbZyuUjWo4G2L4k
+
+###
+DELETE http://localhost:3000/614dab358fe90ca911ed9d64
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDVkOWJhMzVhYzhjOTI4OTVkMWJlYSIsInVzZXJuYW1lIjoibmd1eWVudmFuYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMjQ4MDM1NywiZXhwIjoxNjMyNDgwNTM3fQ.3KNDNOa5hTpA4Yay-60KLfOiqHevz0OVUBf3jlJ7J1k
