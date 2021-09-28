@@ -1,7 +1,7 @@
 GET http://localhost:3000/products
 
 ###
-GET http://localhost:3000/products/6151c5769ecd1a0e18d831c5
+GET http://localhost:3000/products/61520ff7e5f1af18a0b8eca7
 ###
 POST http://localhost:3000/add-product
 x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNzQ3NTEyLCJleHAiOjE2MzI3NDgxMTJ9.7x_jmGOjYS1bOG3vVxL4VBoAzdHO6aRvyaHt4xW0KfQ

@@ -4,9 +4,7 @@ const uploadMiddleware = require('../middlewares/upload');
 const Grid = require("gridfs-stream");
 const mongoose = require("mongoose");
 
-const connectDB = require('../common/mongoose');
 let gfs;
-connectDB();
 const conn = mongoose.connection;
 conn.once("open", function () {
   gfs = Grid(conn.db, mongoose.mongo);

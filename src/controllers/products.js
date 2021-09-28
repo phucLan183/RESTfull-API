@@ -3,9 +3,9 @@ const ProductsModel = require('../models/Products');
 const getAllProducts = async (req, res) => {
   try {
     const productData = await ProductsModel.find()
-      .populate({ path: 'cat_id' })
-      .populate({ path: 'color_id' })
-      .populate({ path: 'config_id' })
+      .populate({ path: 'cat_id', select: 'title' })
+      .populate({ path: 'color_id', select: 'name' })
+      .populate({ path: 'config_id', select: 'name' })
       .lean();
     res.status(200).json({
       status: 'success',
@@ -28,12 +28,15 @@ const getOneProduct = async (req, res) => {
     })
       .populate({
         path: 'cat_id',
+        select: 'title',
       })
       .populate({
         path: 'color_id',
+        select: 'name',
       })
       .populate({
         path: 'config_id',
+        select: 'name',
       })
       .lean();
     res.status(200).json({
@@ -50,29 +53,18 @@ const getOneProduct = async (req, res) => {
 
 const crateProduct = async (req, res) => {
   try {
-    const {
-      title,
-      description,
-      price,
-      sale,
-      color,
-      config,
-      category,
-      isNew,
-      content,
-      stock,
-    } = req.body;
+    const body = req.body;
     const newProduct = new ProductsModel({
-      title: title,
-      description: description,
-      price: price,
-      sale: sale,
-      color_id: color,
-      config_id: config,
-      cat_id: category,
-      is_New: isNew,
-      content: content,
-      stock: stock,
+      title: body.title,
+      description: body.description,
+      price: body.price,
+      sale: body.sale,
+      color_id: body.color,
+      config_id: body.config,
+      cat_id: body.category,
+      is_New: body.isNew,
+      content: body.content,
+      stock: body.stock,
     });
     const saveProduct = await newProduct.save();
     res.status(200).json({

@@ -1,0 +1,46 @@
+GET http://localhost:3000/orders
+
+###
+GET http://localhost:3000/orders/615365b8db01f337b85359f5
+
+###
+POST http://localhost:3000/add-order
+Content-Type: application/json
+
+{
+  "firstName": "Van A",
+  "lastName": "Nguyen",
+  "address": "Hoang Van Thu",
+  "phoneNumber": "0123456798",
+  "message": "Test order",
+  "city": "Ha Noi",
+  "country": "VietNam",
+  "unitShipping": "Electon Store",
+  "products": [
+    {
+      "title": "Iphone 13 Pro Max",
+      "price": "10599000",
+      "color_id": "White",
+      "config_id": "64GB",
+      "quatity": "2"
+    },
+    {
+      "title": "Airpod Pro",
+      "price": "10599000",
+      "color_id": "Yellow",
+      "config_id": "32GB",
+      "quatity": "2"
+    }
+  ]
+}
+
+###
+PUT http://localhost:3000/orders/615365b8db01f337b85359f5
+Content-Type: application/json
+
+{
+  "status": "SUCCESS"
+}
+
+###
+DELETE http://localhost:3000/orders/61537151e9b66c03e8b524b0

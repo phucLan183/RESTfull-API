@@ -32,6 +32,27 @@ const getOneUser = async (req, res) => {
   }
 }
 
+const updateUser = async (req, res) => {
+  try {
+    const userId = req.params.id
+    const levelUpUser = await UsersModel.findByIdAndUpdate({
+      _id: userId
+    }, {
+      $set: {
+        is_Admin: true,
+      }
+    }, { new: true })
+    res.status(200).json({
+      status: 'success',
+      message: levelUpUser
+    })
+  } catch (error) {
+    res.status(500).json({
+      status: 'false',
+      message: error.message,
+    })
+  }
+}
 
 const removeUser = async (req, res) => {
   try {
@@ -51,5 +72,6 @@ const removeUser = async (req, res) => {
 module.exports = {
   getAllUsers: getAllUsers,
   getOneUser: getOneUser,
+  updateUser: updateUser,
   removeUser: removeUser
 }
