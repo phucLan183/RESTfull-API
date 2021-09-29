@@ -81,6 +81,49 @@ const createProduct = async (req, res) => {
   }
 };
 
+const updateProduct = async (req, res) => {
+  try {
+    const {
+      title,
+      description,
+      price,
+      sale,
+      color_id,
+      config_id,
+      cat_id,
+      content,
+      stock,
+      image,
+    } = req.body
+    const productId = req.params.id
+    const changeProduct = await ProductsModel.findByIdAndUpdate({
+      _id: productId
+    }, {
+      $set: {
+        title,
+        description,
+        price,
+        sale,
+        color_id,
+        config_id,
+        cat_id,
+        content,
+        stock,
+        image,
+      }
+    }, { new: true })
+    res.status(200).json({
+      status: 'success',
+      message: changeProduct
+    })
+  } catch (error) {
+    res.status(500).json({
+      status: 'false',
+      message: error.message,
+    });
+  }
+};
+
 const removeProduct = async (req, res) => {
   try {
     const productId = req.params.id;
@@ -102,6 +145,7 @@ const removeProduct = async (req, res) => {
 module.exports = {
   getAllProducts: getAllProducts,
   getOneProduct: getOneProduct,
+  updateProduct: updateProduct,
   removeProduct: removeProduct,
   createProduct: createProduct,
 };

@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
 // Products
 router.get('/products', productsController.getAllProducts)
 router.get('/products/:id', productsController.getOneProduct)
+router.put('/products/:id', productsController.updateProduct)
 router.post('/add-product', isAdmin, productsController.createProduct)
 router.delete('/products/:id', isAdmin, productsController.removeProduct)
 
@@ -49,9 +50,9 @@ router.get('/configs/:id', configController.getOneConfig)
 router.post('/add-config', isAdmin, configController.createConfig)
 
 // Order
-router.get('/orders', orderController.getAllOrder)
+router.get('/orders', isAdmin, orderController.getAllOrder)
 router.get('/orders/:id', orderController.getOneOrder)
 router.post('/add-order', orderController.createOrder)
-router.put('/orders/:id', orderController.updateOrder)
-router.delete('/orders/:id', orderController.deleteOrder)
+router.put('/orders/:id', isAdmin, orderController.updateOrder)
+router.delete('/orders/:id', isAdmin, orderController.deleteOrder)
 module.exports = router
