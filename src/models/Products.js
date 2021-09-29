@@ -34,10 +34,6 @@ const ProductsSchema = new Schema({
     type: String,
     required: true,
   },
-  is_New: {
-    type: Boolean,
-    required: true,
-  },
   cat_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Categories'
