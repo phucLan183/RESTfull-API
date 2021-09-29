@@ -65,6 +65,7 @@ const crateProduct = async (req, res) => {
       is_New: body.isNew,
       content: body.content,
       stock: body.stock,
+      image: req.file.filename
     });
     const saveProduct = await newProduct.save();
     res.status(200).json({
