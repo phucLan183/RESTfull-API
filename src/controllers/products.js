@@ -30,15 +30,15 @@ const getOneProduct = async (req, res) => {
     })
       .populate({
         path: 'cat_id',
-        select: 'title -_id',
+        select: 'title _id',
       })
       .populate({
         path: 'color_id',
-        select: 'name -_id',
+        select: 'name _id',
       })
       .populate({
         path: 'config_id',
-        select: 'name -_id',
+        select: 'name _id',
       })
       .lean();
     res.status(200).json({

@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 // Products
 router.get('/products', productsController.getAllProducts)
 router.get('/products/:id', productsController.getOneProduct)
-router.post('/add-product', productsController.createProduct)
+router.post('/add-product', isAdmin, productsController.createProduct)
 router.delete('/products/:id', isAdmin, productsController.removeProduct)
 
 // Categories
