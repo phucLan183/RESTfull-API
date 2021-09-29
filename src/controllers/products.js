@@ -3,9 +3,11 @@ const ProductsModel = require('../models/Products');
 const getAllProducts = async (req, res) => {
   try {
     const productData = await ProductsModel.find()
-      .populate({ path: 'cat_id', select: 'title -_id' })
-      .populate({ path: 'color_id', select: 'name -_id' })
-      .populate({ path: 'config_id', select: 'name -_id' })
+      .populate([
+        { path: 'cat_id', select: 'title _id' },
+        { path: 'color_id', select: 'name _id' },
+        { path: 'config_id', select: 'name _id' },
+      ])
       .lean();
     res.status(200).json({
       status: 'success',
