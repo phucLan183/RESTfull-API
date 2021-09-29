@@ -7,7 +7,7 @@ const validationMiddleware = require('../middlewares/validation');
 const { userSchema } = require('../Validations');
 
 router.post('/register', validationMiddleware(userSchema), authController.userRegister);
-router.post('/login', authController.userLogin);
+router.post('/login', validationMiddleware(userSchema), authController.userLogin);
 router.delete('/logout', authenticateToken, authController.userLogout);
 
 router.get('/access-token', authenticateToken, authController.accessToken);

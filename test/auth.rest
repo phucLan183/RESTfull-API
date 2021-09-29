@@ -5,7 +5,7 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "username": "admin",
+    "username": "admin1",
     "password": "123456" 
 }
 
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/logout
-x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyNzYzODQzLCJleHAiOjE2MzI3NjQ0NDN9.kN5Kl0-AQonJLXImq94gBfUP_M1Ugh3B9a4bpRV7HU0
+x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpc19BZG1pbiI6dHJ1ZSwiaWF0IjoxNjMyOTE3MzcxLCJleHAiOjE2MzI5MTkxNzF9.gIBPr32hKxfncwdRUznus3HtnBF4VeLuSi0uTspfAI4
 
 ###
 GET http://localhost:3000/access-token
@@ -38,7 +38,7 @@ x-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA
 
 ###
 POST http://localhost:3000/refresh-token
-x-refresh-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MzI2MjY2MzYsImV4cCI6MTYzMzIzMTQzNn0.0fE9vx9AnVox3u9o3PWk5q5gYYCCWbZyuUjWo4G2L4k
+x-refresh-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNGRjMzE3YWZiODA0MTA1MGE2NjE1ZSIsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MzI5MTg3MzMsImV4cCI6MTYzMzUyMzUzM30.DP2xUqTG11nZ4k6ooOpiBBglXlpI3SYy7TmNvLse6ys
 
 ###
 DELETE http://localhost:3000/614dab358fe90ca911ed9d64

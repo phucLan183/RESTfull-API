@@ -14,7 +14,7 @@ conn.once("open", function () {
 
 router.post("/upload", uploadMiddleware.single("file"), async (req, res) => {
   if (req.file === undefined) return res.send("you must select a file.");
-  const imgUrl = `http://localhost:3000/file/${req.file.filename}`;
+  const imgUrl = `/file/${req.file.filename}`;
   return res.send(imgUrl);
 });
 

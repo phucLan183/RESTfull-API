@@ -1,10 +1,9 @@
 const yup = require('yup');
 
-const userSchema = yup.object({
+const userSchema = yup.object().shape({
   username: yup.string().required(),
   password: yup.string().min(6).max(12).required()
 })
-
 
 const productSchema = yup.object({
   title: yup.string().required(),

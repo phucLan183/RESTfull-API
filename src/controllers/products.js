@@ -3,14 +3,14 @@ const ProductsModel = require('../models/Products');
 const getAllProducts = async (req, res) => {
   try {
     const productData = await ProductsModel.find()
-      .populate({ path: 'cat_id', select: 'title' })
-      .populate({ path: 'color_id', select: 'name' })
-      .populate({ path: 'config_id', select: 'name' })
+      .populate({ path: 'cat_id', select: 'title -_id' })
+      .populate({ path: 'color_id', select: 'name -_id' })
+      .populate({ path: 'config_id', select: 'name -_id' })
       .lean();
     res.status(200).json({
       status: 'success',
       message: productData,
-      totalProducts: productData.length,
+      total: productData.length,
     });
   } catch (error) {
     res.status(500).json({
@@ -28,15 +28,15 @@ const getOneProduct = async (req, res) => {
     })
       .populate({
         path: 'cat_id',
-        select: 'title',
+        select: 'title -_id',
       })
       .populate({
         path: 'color_id',
-        select: 'name',
+        select: 'name -_id',
       })
       .populate({
         path: 'config_id',
-        select: 'name',
+        select: 'name -_id',
       })
       .lean();
     res.status(200).json({

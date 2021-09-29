@@ -28,8 +28,14 @@ const userLogin = async (req, res) => {
   try {
     const { username, password } = req.body
     const checkUser = await User.findOne({ username: username })
+    if (!checkUser) {
+      return res.status(404).json({
+        status: 'false',
+        message: 'Username or password incorrect',
+      })
+    }
     const comparePass = await bcrypt.compare(password, checkUser.password)
-    if (!checkUser || !comparePass) {
+    if (!comparePass) {
       return res.status(404).json({
         status: 'false',
         message: 'Username or password incorrect',

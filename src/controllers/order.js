@@ -6,6 +6,7 @@ const getAllOrder = async (req, res) => {
     res.status(200).json({
       status: 'success',
       message: dataOrder,
+      total: dataOrder.length
     });
   } catch (error) {
     res.status(500).json({
