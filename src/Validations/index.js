@@ -12,7 +12,6 @@ const productSchema = yup.object({
   sale: yup.number().max(100).required(),
   content: yup.string().required(),
   stock: yup.number().required(),
-  isNew: yup.boolean().required(),
   config_id: yup.string().required(),
   color_id: yup.string().required(),
   category_id: yup.string().required(),

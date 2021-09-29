@@ -62,7 +62,6 @@ const crateProduct = async (req, res) => {
       color_id: body.color,
       config_id: body.config,
       cat_id: body.category,
-      is_New: body.isNew,
       content: body.content,
       stock: body.stock,
       image: req.file.filename
