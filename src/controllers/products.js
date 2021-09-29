@@ -51,7 +51,7 @@ const getOneProduct = async (req, res) => {
   }
 };
 
-const crateProduct = async (req, res) => {
+const createProduct = async (req, res) => {
   try {
     const body = req.body;
     const newProduct = new ProductsModel({
@@ -64,7 +64,7 @@ const crateProduct = async (req, res) => {
       cat_id: body.category,
       content: body.content,
       stock: body.stock,
-      image: req.file.filename
+      image: body.image,
     });
     const saveProduct = await newProduct.save();
     res.status(200).json({
@@ -101,5 +101,5 @@ module.exports = {
   getAllProducts: getAllProducts,
   getOneProduct: getOneProduct,
   removeProduct: removeProduct,
-  crateProduct: crateProduct,
+  createProduct: createProduct,
 };
